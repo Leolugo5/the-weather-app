@@ -27,7 +27,7 @@ function App() {
   // ESTA ES LA RESPUESTA DE LA APPI
   
   const infoRequest = async sendingUserInfo => {
-    const url = `http://api.weatherapi.com/v1/search.json?key=d602d1948ede425291845325210307&q=${posDat.latitude},${posDat.longitude}`;
+    const url = `http://api.weatherapi.com/v1/current.json?key=d602d1948ede425291845325210307&q=${posDat.latitude},${posDat.longitude}`;
     const response = await fetch(url);
     const data = await response.json();
     console.log(data)
