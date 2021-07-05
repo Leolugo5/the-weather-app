@@ -1,23 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import {useEffect, useState} from 'react'
+
 
 function App() {
+
+  //AQUI SE SOLICITA Y ORGANIZA LA GEOLOCALIZACION DEL USUARIO
+
+  useEffect(() => {
+    getLocation();
+  })
+
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(function (position) {
+      setPosDat({
+        longitude: position.coords.longitude,
+        latitude: position.coords.latitude
+      })},
+    function (error) {alert('No se pudo obtener su ubicación, Por favor recarge la pagina')})
+  };
+
+  const [posDat, setPosDat] = useState({
+    longitude: 0,
+    latitude: 0
+  })
+
+  // ESTA ES LA RESPUESTA DE LA APPI
+  
+  const infoRequest = async sendingUserInfo => {
+    const url = `http://api.weatherapi.com/v1/search.json?key=d602d1948ede425291845325210307&q=${posDat.latitude},${posDat.longitude}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    console.log(data)
+  }
+  infoRequest()
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Hola Mundo</h1>
+
+      <div className="diapay"> los datos son los siguientes </div>
+      <div>latitude: {posDat.latitude} </div>
+      <div>longitude: {posDat.longitude} </div>
     </div>
   );
 }
