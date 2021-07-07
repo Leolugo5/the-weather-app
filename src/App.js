@@ -23,7 +23,7 @@ function App() {
   const getLocation = async () => {
     try {
       navigator.geolocation.getCurrentPosition(gotPosition);
-      const reqInfo = await `http://api.weatherapi.com/v1/current.json?key=d602d1948ede425291845325210307&q=${latVal},${lonVal}`;
+      const reqInfo = await `https://api.weatherapi.com/v1/current.json?key=d602d1948ede425291845325210307&q=${latVal},${lonVal}`;
       const response = await fetch(reqInfo);
       const data = await response.json();
       console.log(data)
