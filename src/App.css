@@ -4,8 +4,40 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: rgba(78, 212, 37, 0.753);
+}
+h1 {
+    font-size: 2.5rem;
+    margin: 4rem;
+}
+h2 {
+    font-size: 1.4rem;
+    padding: 1rem 1.5rem;
+}
+
+.title {
+    color: rgb(224, 224, 224);
+    background-color: rgba(118, 13, 216, 0.445);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 1rem 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .display {
+    background-color: coral;
+    padding: 7rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 0px 50px 100px 0px rgba(0, 0, 0, .2);
+    font-family: 'Lucida Grande', 'Lucida Sans Unicode';
+    color: wheat;
+    font-size: 1.5rem;
+}
 
+.T-C {
+    display: none;
 }

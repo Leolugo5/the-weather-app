@@ -11,7 +11,7 @@ function App() {
   const [icon, setIcon] = useState(null);
   const [txtDesc, setTxtDesc] = useState("");
   const [tempC, setTemC] = useState(null);
-  const [tempF, setTempF] = useState(0);
+  const [tempF, setTempF] = useState(null);
 
 
 
@@ -23,12 +23,13 @@ function App() {
   const getLocation = async () => {
     try {
       navigator.geolocation.getCurrentPosition(gotPosition);
-      const reqInfo = await `https://api.weatherapi.com/v1/current.json?key=d602d1948ede425291845325210307&q=${latVal},${lonVal}`;
+      const reqInfo = `http://api.weatherapi.com/v1/current.json?key=d602d1948ede425291845325210307&q=${latVal},${lonVal}`;
       const response = await fetch(reqInfo);
       const data = await response.json();
-      console.log(data)
+      
+      
       //AQUI SE ASIGNAN LOS VALORES CORRESPONDIENTES
-      setCity(data.location.tz_id)
+      setCity(data.location.region)
       setCountry(data.location.country)
       setIcon(data.current.condition.icon)
       setTxtDesc(data.current.condition.text)
@@ -45,22 +46,31 @@ function App() {
   useEffect(() => {
     getLocation();
   });
- 
+
+
   
+
+
   return (
     <div className="App">
       <h1>The Weather App</h1>
+      <div className="main-card">
+      <div className="title">
+      <h2>The weather in your location is as it follows</h2> 
+      </div>
     
-      <div className="diapay"> los datos son los siguientes </div>
-      <div>latitude: {latitude} </div>
-      <div>longitude: {longitude} </div>
-      <div>city: {city} </div>
-      <div>country: {country} </div>
-      <div> {icon} </div>
-      <div> description: {txtDesc} </div>
-      <div>Temperature °C: {tempC} </div>
-      <div>Temperature °F: {tempF} </div>
-      <button></button>
+      <div className="display">
+      <div>City: {city} </div>
+      <div>Country: {country} </div>
+      <br />
+      <div> {txtDesc} </div>
+      <img src={icon} alt="icon" />
+      <div> Temperature is: </div>
+      <div> {tempC} °C </div>
+      <div> {tempF} °F </div>
+
+      </div>
+      </div>
     </div>
   );
 }
