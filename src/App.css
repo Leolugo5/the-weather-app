@@ -1,10 +1,10 @@
 .App {
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: rgba(78, 212, 37, 0.753);
+    background-color: rgba(184, 49, 49, 0.815);
 }
 h1 {
     font-size: 2.5rem;
