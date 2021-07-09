@@ -36,7 +36,6 @@ function App() {
       setTemC(data.current.temp_c)
       setTempF(data.current.temp_f)
     } catch (error) {
-      alert('sin acceso a la ubicacion')
     }
   };
 
