@@ -31,7 +31,6 @@ function App() {
       setTxtDesc(data.current.condition.text)
       setTemC(data.current.temp_c)
       setTempF(data.current.temp_f)
-      console.log(data)
     }
     if (latitude && longitude) {
       request()
