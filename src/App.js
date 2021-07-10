@@ -22,7 +22,7 @@ function App() {
   }, [])
   useEffect(()=> {
     const request = async () => {
-      const link = `http://api.weatherapi.com/v1/current.json?key=d602d1948ede425291845325210307&q=${latitude},${longitude}&aqi=no`;
+      const link = `https://api.weatherapi.com/v1/current.json?key=d602d1948ede425291845325210307&q=${latitude},${longitude}&aqi=no`;
       const response = await fetch(link);
       const data = await response.json();
       setCity(data.location.name)
